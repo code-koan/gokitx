@@ -17,6 +17,18 @@ func ToMapV[Src, Key, Value comparable](src []Src, fn func(s Src) (Key, Value)) 
 	return res
 }
 
+// FilterMap 数组类型转换函数, 条件筛选
+func FilterMap[Src any, Target any](src []Src, fn func(s Src) (Target, bool)) []Target {
+	res := make([]Target, 0, len(src))
+	for _, s := range src {
+		t, ok := fn(s)
+		if ok {
+			res = append(res, t)
+		}
+	}
+	return res
+}
+
 // MapX 数组类型转换函数
 func MapX[Src any, Target any](src []Src, f func(Src) Target) (res []Target) {
 	res = make([]Target, len(src))

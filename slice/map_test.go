@@ -98,3 +98,36 @@ func TestToMapV(t *testing.T) {
 		})
 	}
 }
+
+func TestFilterMap(t *testing.T) {
+	testCases := []struct {
+		name       string
+		src        []int
+		fn         func(int) (int, bool)
+		wantTarget []int
+	}{
+		{
+			name: "filter even and add one",
+			src:  []int{1, 2, 3, 4, 5},
+			fn: func(i int) (int, bool) {
+				if i%2 == 0 {
+					return i + 1, true
+				}
+				return 0, false
+			},
+			wantTarget: []int{3, 5},
+		},
+		{
+			name:       "empty input",
+			src:        []int{},
+			fn:         func(i int) (int, bool) { return i, true },
+			wantTarget: []int{},
+		},
+	}
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			res := FilterMap(tc.src, tc.fn)
+			assert.Equal(t, res, tc.wantTarget)
+		})
+	}
+}
