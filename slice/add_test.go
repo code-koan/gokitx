@@ -1,9 +1,10 @@
 package slice
 
 import (
+	"testing"
+
 	"github.com/code-koan/gokitx/errs"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func TestAdd(t *testing.T) {
