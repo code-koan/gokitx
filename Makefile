@@ -10,6 +10,13 @@ GOLANGCI_LINT ?= golangci-lint
 .PHONY: all
 all: fmt lint test
 
+# Install git hooks
+.PHONY: setup
+setup:
+	@echo "Installing git hooks..."
+	ln -sf ../../scripts/pre-commit .git/hooks/pre-commit
+	chmod +x .git/hooks/pre-commit
+
 # Install dependencies
 .PHONY: deps
 deps:

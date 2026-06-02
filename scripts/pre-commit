@@ -1,0 +1,14 @@
+#!/bin/sh
+# Pre-commit hook: run golangci-lint on staged Go files.
+# Install: make setup
+
+set -e
+
+STAGED=$(git diff --cached --name-only --diff-filter=ACM | grep '\.go$' || true)
+
+if [ -z "$STAGED" ]; then
+    exit 0
+fi
+
+echo "Running golangci-lint..."
+golangci-lint run ./...
