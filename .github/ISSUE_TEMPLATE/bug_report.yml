@@ -1,0 +1,48 @@
+name: Bug 报告
+description: 报告 bug 或异常行为
+title: "[BUG] "
+labels: [fix, needs-triage]
+body:
+  - type: checkboxes
+    attributes:
+      label: 提交前确认
+      options:
+        - label: 我已搜索过已有 issue，没有找到重复的
+          required: true
+  - type: textarea
+    attributes:
+      label: 问题描述
+      description: 发生了什么？和预期有什么不同？
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 复现代码
+      description: 提供最小可复现的代码示例
+      render: go
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 期望行为
+      description: 正确情况应该是什么样的？
+  - type: textarea
+    attributes:
+      label: 实际行为
+      description: 实际发生了什么？包含错误信息、堆栈。
+  - type: input
+    attributes:
+      label: Go 版本
+      description: "`go version` 输出"
+      placeholder: "go1.24.0 linux/amd64"
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: gokitx 版本
+      description: 使用的 gokitx 版本
+      placeholder: "v0.1.0"
+  - type: textarea
+    attributes:
+      label: 补充信息
+      description: 任何有助于排查的信息
