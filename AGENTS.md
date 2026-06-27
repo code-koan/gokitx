@@ -8,6 +8,14 @@ Go 泛型基础数据结构工具库 — 零依赖、可跨项目复用的通用
 - **语言**: Go 1.24+
 - **模块**: `github.com/code-koan/gokitx`
 
+## 文档输出规范（CRITICAL）
+
+AI 产出的所有方案、文档、沉淀总结必须简洁：
+
+- **步骤用列表** — 流程类内容用列表，不用大段叙述
+- **多维用矩阵** — 多方案/多维度对比用表格
+- **一句话高密度** — 一句说清链路：做什么 → 为什么 → 接下来几步
+
 ## Go 编写规范
 
 遵循 [Go Proverbs](https://go-proverbs.github.io/) 和 [Effective Go](https://go.dev/doc/effective_go)。
